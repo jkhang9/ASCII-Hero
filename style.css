@@ -1,48 +1,5 @@
-:root {
-  color-scheme: light;
-  background: #f8f7f3;
-  font-family: 'Courier New', monospace;
-  color: #92928d;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-}
-
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100svh;
-  min-height: 440px;
-  overflow: hidden;
-  touch-action: none;
-  outline: none;
-}
-
-.hero:focus-visible {
-  outline: 1px dotted #92928d;
-  outline-offset: -8px;
-}
-
-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-
-/* -------------------------
-   CENTER IDENTITY
-------------------------- */
-
 .identity {
-  --identity-gap: 32px;
+  --identity-gap: 25px;
 
   position: absolute;
   left: 50%;
@@ -53,36 +10,25 @@ canvas {
   align-items: center;
   gap: var(--identity-gap);
 
-  white-space: nowrap;
   pointer-events: none;
+  white-space: nowrap;
 }
 
-
-/* NAME
-   Don't constrain this to exactly 258px.
-   Give the rendered characters room to breathe.
-*/
 h1 {
-  display: block;
-
-  width: max-content;
-  min-width: 258px;
-
-  /* prevents edge glyphs like "g" from clipping */
-  padding: 0 4px;
+  display: inline-block;
+  flex: 0 0 auto;
 
   margin: 0;
 
   color: transparent;
+
   font-size: 29px;
   font-weight: 400;
   line-height: 32px;
 
-  overflow: visible;
+  white-space: nowrap;
 }
 
-
-/* DIVIDER */
 .divider {
   flex: 0 0 1px;
   width: 1px;
@@ -90,9 +36,9 @@ h1 {
   background: #d5d4ce;
 }
 
-
-/* RIGHT-SIDE INFO */
 .metadata {
+  flex: 0 0 auto;
+
   font-size: 12px;
   line-height: 1.9;
   letter-spacing: 1.2px;
@@ -100,124 +46,4 @@ h1 {
 
 .metadata p {
   margin: 0;
-}
-
-
-/* -------------------------
-   INSTRUCTIONS
-------------------------- */
-
-.instruction {
-  position: absolute;
-  left: 42px;
-  bottom: 36px;
-
-  margin: 0;
-
-  font-size: 10px;
-  letter-spacing: 1.2px;
-  line-height: 1.9;
-
-  color: #b1b0a9;
-  pointer-events: none;
-}
-
-.touch {
-  display: none;
-}
-
-
-/* -------------------------
-   SCROLL INDICATOR
-------------------------- */
-
-.scroll {
-  position: absolute;
-  bottom: 36px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: #a7a69f;
-  text-align: center;
-
-  pointer-events: none;
-}
-
-.scroll span {
-  display: block;
-  margin-bottom: 12px;
-
-  font-size: 18px;
-  font-family: monospace;
-  font-weight: 300;
-}
-
-
-/* -------------------------
-   MOBILE
-------------------------- */
-
-@media (max-width: 600px) {
-  .identity {
-    --identity-gap: 20px;
-  }
-
-  h1 {
-    min-width: 171px;
-    padding: 0 3px;
-
-    height: 24px;
-    line-height: 24px;
-  }
-
-  .metadata {
-    font-size: 9px;
-    letter-spacing: 0.55px;
-    line-height: 2;
-  }
-
-  .divider {
-    height: 41px;
-  }
-
-  .instruction {
-    left: 22px;
-    bottom: 28px;
-
-    font-size: 8px;
-    letter-spacing: 0.7px;
-  }
-
-  .scroll {
-    bottom: 28px;
-    font-size: 8px;
-  }
-}
-
-
-@media (pointer: coarse) {
-  .desktop {
-    display: none;
-  }
-
-  .touch {
-    display: inline;
-  }
-}
-
-
-@media (max-width: 350px) {
-  .identity {
-    --identity-gap: 14px;
-  }
-
-  h1 {
-    min-width: 155px;
-  }
-
-  .metadata {
-    font-size: 8px;
-  }
 }
